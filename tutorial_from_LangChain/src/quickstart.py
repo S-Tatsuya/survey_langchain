@@ -56,7 +56,9 @@ def tutorial_of_llms():
 
 
 def prompt_templates():
-    """Prompt Templatesの動きを確認する"""
+    """Prompt Templatesの動きを確認する
+    1. Prompt Templatesの出力を確認
+    2. `ChatPromptTemplate` に複数の `Prompt Templates` を与えて実際にChatModelに設定する"""
 
     print("\033[041mPrompt Templates\033[0m")
     template = "What is a good name for a company that makes {product}?"
