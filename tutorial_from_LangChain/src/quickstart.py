@@ -2,6 +2,12 @@ import os
 
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
+from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    PromptTemplate,
+    SystemMessagePromptTemplate,
+)
 from langchain.schema import HumanMessage
 
 
@@ -49,5 +55,39 @@ def tutorial_of_llms():
     print()
 
 
+def prompt_templates():
+    """Prompt Templatesの動きを確認する"""
+
+    print("\033[041mPrompt Templates\033[0m")
+    template = "What is a good name for a company that makes {product}?"
+    print(f"{template=}")
+    prompt = PromptTemplate.from_template(template)
+    print(f"{prompt.format(product='colorful socks')=}")
+    print()
+
+    print("\033[042m複数のPrompt Templatesの活用\033[0m")
+    template = (
+        "Your are a helpful assistant that translates "
+        "{input_language} to {output_language}"
+    )
+    system_message_prompt = SystemMessagePromptTemplate.from_template(template)
+    human_template = "{text}"
+    human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+    chat_prompt = ChatPromptTemplate.from_messages(
+        [system_message_prompt, human_message_prompt]
+    )
+    complete_prompt = chat_prompt.format_messages(
+        input_language="English",
+        output_language="Japanese",
+        text="I love programming.",
+    )
+    print(f"{complete_prompt=}")
+
+    chat_model = ChatOpenAI()
+    print(chat_model.predict_messages(complete_prompt))
+
+
 if __name__ == "__main__":
-    tutorial_of_llms()
+    # tutorial_of_llms()
+    prompt_templates()
