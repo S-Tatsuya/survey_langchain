@@ -1,5 +1,6 @@
 import os
 
+from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
 from langchain.llms import OpenAI
 from langchain.prompts import (
@@ -100,7 +101,36 @@ def output_parsers():
     print(CommaSeparatedListOutputParser().parse("hi, bye"))
 
 
+def llm_chain():
+    """LLM Chainの動きを確認する"""
+
+    class CommaSeparatedListOutputParser(BaseOutputParser):
+        def parse(self, text: str):
+            return text.strip().split(", ")
+
+    template = """You are a helpful assistant who generates comma separated lists.
+A user will pass in a category, and you should generate 5 objects
+in that category in a comma separated list.
+ONLY return a comma separated list, and nothing more."""
+
+    system_message_prompt = SystemMessagePromptTemplate.from_template(template)
+    human_template = "{text}"
+    human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+    chat_prompt = ChatPromptTemplate.from_messages(
+        [system_message_prompt, human_message_prompt]
+    )
+    chain = LLMChain(
+        llm=ChatOpenAI(),
+        prompt=chat_prompt,
+        output_parser=CommaSeparatedListOutputParser(),
+    )
+
+    print(chain.run("colors"))
+
+
 if __name__ == "__main__":
     # tutorial_of_llms()
     # prompt_templates()
-    output_parsers()
+    # output_parsers()
+    llm_chain()
