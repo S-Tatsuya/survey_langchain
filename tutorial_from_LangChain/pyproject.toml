@@ -8,6 +8,8 @@ packages = [{include = "tutorial_from_langchain"}]
 
 [tool.poetry.dependencies]
 python = "3.10.12"
+langchain = "^0.0.263"
+openai = "^0.27.8"
 
 
 [build-system]
