@@ -8,7 +8,7 @@ from langchain.prompts import (
     PromptTemplate,
     SystemMessagePromptTemplate,
 )
-from langchain.schema import HumanMessage
+from langchain.schema import BaseOutputParser, HumanMessage
 
 
 def tutorial_of_llms():
@@ -90,6 +90,17 @@ def prompt_templates():
     print(chat_model.predict_messages(complete_prompt))
 
 
+def output_parsers():
+    """Output Parsesの確認"""
+
+    class CommaSeparatedListOutputParser(BaseOutputParser):
+        def parse(self, text: str):
+            return text.strip().split(", ")
+
+    print(CommaSeparatedListOutputParser().parse("hi, bye"))
+
+
 if __name__ == "__main__":
     # tutorial_of_llms()
-    prompt_templates()
+    # prompt_templates()
+    output_parsers()
