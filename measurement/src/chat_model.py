@@ -4,7 +4,7 @@ from langchain.schema import AIMessage, HumanMessage, SystemMessage
 chat = ChatOpenAI()
 
 
-def messages_in_message_out():
+def messages_in_message_out_without_system_message():
     #  AIMessage(content="J'aime programmer.", additional_kwargs={})
     print(
         chat(
@@ -21,4 +21,4 @@ def messages_in_message_out():
 
 
 if __name__ == "__main__":
-    messages_in_message_out()
+    messages_in_message_out_without_system_message()
