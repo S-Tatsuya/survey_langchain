@@ -32,6 +32,33 @@ def messages_in_message_out_with_system_message():
     print(chat(messages))
 
 
+def batch_calls_richer_outputs():
+    batch_messages = [
+        [
+            SystemMessage(
+                content="You are a helpful assistant that translates English to Japanese."
+            ),
+            HumanMessage(
+                content="I love programming",
+            ),
+        ],
+        [
+            SystemMessage(
+                content="You are a helpful assistant that translates English to Japanese."
+            ),
+            HumanMessage(
+                content="I love artificial intelligence.",
+            ),
+        ],
+    ]
+
+    result = chat.generate(batch_messages)
+    print(f"{type(result)=}")
+    print(result)
+    print(result.llm_output)
+
+
 if __name__ == "__main__":
     # messages_in_message_out_without_system_message()
-    messages_in_message_out_with_system_message()
+    # messages_in_message_out_with_system_message()
+    batch_calls_richer_outputs()
