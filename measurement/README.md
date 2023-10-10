@@ -6,7 +6,7 @@
     - 未指定の場合は `text-davinci-003` が使われる
 - [x] [ChatModels](https://python.langchain.com/docs/modules/model_io/models/chat/)を使ったコードの実装
     - 未指定の場合は `gpt-3.5-turbo` が使用される
-- [ ] [Note: ChatGPTの応答時間測定](https://note.com/bbz662bbz/n/n9dfc87691818) 応答時間の計測方法
+- [x] [Note: ChatGPTの応答時間測定](https://note.com/bbz662bbz/n/n9dfc87691818) 応答時間の計測方法
 - [ ] [get_openai_callback](https://python.langchain.com/docs/modules/callbacks/token_counting) トークン数の測定
 - [ ] [Sequential Chain](https://python.langchain.com/docs/modules/chains/foundational/sequential_chains) の使い方を調べる
 - [x] `GPT3.5` でも `llms` が使えるのかを調査する
@@ -26,3 +26,16 @@
         ```
 
 - [ ] ModelをAzureに切り替える
+
+## 内田さんの要求
+
+- Slackから引用
+
+    >簡単にいうとこんなことがやりたいです。
+    >SystemPrompt（初回のみ）：あなたは要求仕様を添削する人です。ユーザーが入力する文章の文法誤りや誤字を指摘し、修正案を提示してください。応答のフォーマットは〇〇で。
+    >HumanMessage：要求１を入力
+    >AIMessage：LLMが要求１の指摘および修正案を応答
+    >HumanMessage：要求２を入力
+    >AIMessage：LLMが要求２の指摘および修正案を応答
+    >　　　:
+    >で、最後にAIMessageが応答したすべての文章を拾い上げて、REST APIの応答フォーマットに沿って返すみたいなことがしたいです。
