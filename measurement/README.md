@@ -2,7 +2,27 @@
 
 ## やること
 
-- [ ] [LLMs](https://python.langchain.com/docs/modules/model_io/models/llms/)を使ったコードの実装
+- [x] [LLMs](https://python.langchain.com/docs/modules/model_io/models/llms/)を使ったコードの実装
+    - `'model_name': 'text-davinci-003` で応答が生成されている
+    - 未指定の場合は `text-davinci-003` が使われる？
 - [ ] [ChatModels](https://python.langchain.com/docs/modules/model_io/models/chat/)を使ったコードの実装
 - [ ] [Note: ChatGPTの応答時間測定](https://note.com/bbz662bbz/n/n9dfc87691818) 応答時間の計測方法
 - [ ] [get_openai_callback](https://python.langchain.com/docs/modules/callbacks/token_counting) トークン数の測定
+- [ ] [Sequential Chain](https://python.langchain.com/docs/modules/chains/foundational/sequential_chains) の使い方を調べる
+- [x] `GPT3.5` でも `llms` が使えるのかを調査する
+    - `model_name="gpt-3.5-turbo"` の指定では以下の警告が出力される
+
+        ```bash
+        ❯ poetry run python src/main.py
+        /home/tsakurai/work/survey/survey_langchain/measurement/.venv/lib/python3.10/site-packages/langchain/llms/openai.py:216: UserWarning: You are trying to use a chat model. This way of initializing it is no longer supported. Instead, please use: `from langchain.chat_models import ChatOpenAI`
+        warnings.warn(
+        /home/tsakurai/work/survey/survey_langchain/measurement/.venv/lib/python3.10/site-packages/langchain/llms/openai.py:811: UserWarning: You are trying to use a chat model. This way of initializing it is no longer supported. Instead, please use: `from langchain.chat_models import ChatOpenAI`
+        warnings.warn(
+        Sure, here's a joke for you:
+
+        Why don't scientists trust atoms? 
+
+        Because they make up everything! 
+        ```
+
+- [ ] ModelをAzureに切り替える
