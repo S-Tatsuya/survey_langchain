@@ -9,6 +9,9 @@
 - [x] [Note: ChatGPTの応答時間測定](https://note.com/bbz662bbz/n/n9dfc87691818) 応答時間の計測方法
 - [ ] [get_openai_callback](https://python.langchain.com/docs/modules/callbacks/token_counting) トークン数の測定
 - [ ] [Sequential Chain](https://python.langchain.com/docs/modules/chains/foundational/sequential_chains) の使い方を調べる
+- [ ] [async](https://python.langchain.com/docs/modules/chains/how_to/async_chain) の動作確認
+- [ ] [asyncサンプル](https://towardsdatascience.com/async-calls-for-chains-with-langchain-3818c16062ed) の動作確認
+- [ ] ChatGPTのAPIの応答の高速化の方法を考える
 - [x] `GPT3.5` でも `llms` が使えるのかを調査する
     - `model_name="gpt-3.5-turbo"` の指定では以下の警告が出力される
 
@@ -31,11 +34,4 @@
 
 - Slackから引用
 
-    >簡単にいうとこんなことがやりたいです。
-    >SystemPrompt（初回のみ）：あなたは要求仕様を添削する人です。ユーザーが入力する文章の文法誤りや誤字を指摘し、修正案を提示してください。応答のフォーマットは〇〇で。
-    >HumanMessage：要求１を入力
-    >AIMessage：LLMが要求１の指摘および修正案を応答
-    >HumanMessage：要求２を入力
-    >AIMessage：LLMが要求２の指摘および修正案を応答
-    >　　　:
-    >で、最後にAIMessageが応答したすべての文章を拾い上げて、REST APIの応答フォーマットに沿って返すみたいなことがしたいです。
+    >昨夜話したChatModels使う案の依頼は撤回させてください。上記の記事のようにAsync呼び出しで高速化することは実施すると思うので、LLMにUSDMレビューしてもらうときにどのような応答策があるかどうかを検討していただけると助かります。
