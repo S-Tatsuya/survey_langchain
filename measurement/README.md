@@ -7,8 +7,10 @@
 - [x] [ChatModels](https://python.langchain.com/docs/modules/model_io/models/chat/)を使ったコードの実装
     - 未指定の場合は `gpt-3.5-turbo` が使用される
 - [x] [Note: ChatGPTの応答時間測定](https://note.com/bbz662bbz/n/n9dfc87691818) 応答時間の計測方法
-- [ ] [get_openai_callback](https://python.langchain.com/docs/modules/callbacks/token_counting) トークン数の測定
+- [x] [get_openai_callback](https://python.langchain.com/docs/modules/callbacks/token_counting) トークン数の測定
+    - [ ] asyncの確認は asyncの理解をしてから再度実施する
 - [ ] [Sequential Chain](https://python.langchain.com/docs/modules/chains/foundational/sequential_chains) の使い方を調べる
+- [ ] Pythonのasyncを理解する
 - [ ] [async](https://python.langchain.com/docs/modules/chains/how_to/async_chain) の動作確認
 - [ ] [asyncサンプル](https://towardsdatascience.com/async-calls-for-chains-with-langchain-3818c16062ed) の動作確認
 - [ ] ChatGPTのAPIの応答の高速化の方法を考える
